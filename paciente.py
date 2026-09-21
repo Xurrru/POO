@@ -38,8 +38,10 @@ class Paciente:
     def prevision(self, prevision:str)->None:
         self._prevision = prevision
 
-    def __str__(self)->str:
-        return f"Información del paciente:\nRUT: {self.rut}\nNombre: {self.nombre}\nEdad {self.edad}\nPrevision {self.prevision}"
-    
-    def __str__(self)->str:
-         return f"Paciente(rut= '{self.rut}', nombre= '{self.nombre}', edad= '{self.edad}', prevision='{self.prevision}')"
+
+
+    def __str__(self) -> str:
+        return f"Información del paciente:\nRUT: {self.rut}\nNombre: {self.nombre}\nEdad: {self.edad}\nPrevisión: {self.prevision}"
+
+    def __repr__(self) -> str:
+        return f"Paciente(rut='{self.rut}', nombre='{self.nombre}', edad='{self.edad}', prevision='{self.prevision}')"
