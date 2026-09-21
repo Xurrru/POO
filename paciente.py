@@ -45,3 +45,5 @@ class Paciente:
 
     def __repr__(self) -> str:
         return f"Paciente(rut='{self.rut}', nombre='{self.nombre}', edad='{self.edad}', prevision='{self.prevision}')"
+
+    
