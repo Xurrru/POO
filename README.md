@@ -9,9 +9,9 @@ Semestre 2-IEC-Programación orientada a objetos seguro
 
 Antes de trabajar con Git en tu equipo, es necesario identificar el usuario y correo electrónico que se asociarán a tus modificaciones.
 
-*   `git config --global user.name nombre_github`  
+*   `git config --global user.name "nombre_github"`  
     * **Explicación:** Configura tu nombre de usuario a nivel global en tu equipo. Este nombre aparecerá como el autor de las modificaciones o commits que realices.
-*   `git config --global user.email email_github`  
+*   `git config --global user.email "email_github"`  
     * **Explicación:** Define el correo electrónico asociado a tu cuenta de GitHub. Es indispensable para que la plataforma vincule tus commits locales con tu perfil de usuario.
 *   `git config --global --list`  
     * **Explicación:** Lista todas las configuraciones globales que se han establecido previamente (incluyendo tu nombre, email y otras preferencias), permitiendo verificar que los datos ingresados sean correctos.
