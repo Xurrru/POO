@@ -2,7 +2,7 @@
 
 class Paciente:
 
-    PREVISIONES:set[str] = {"Fonasa", "Isapre", "Particular"}
+    PREVISIONES:set[str] = {"Fonasa", "Isapre", "Particular", "Otro"}
 
     def __init__(self, rut:str, nombre:str, edad:int, prevision:str):
         self.rut = rut
