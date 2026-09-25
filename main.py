@@ -48,6 +48,15 @@ def agregar_paciente() -> None:
         return
     pacientes.append(Paciente(rut, nombre, edad, prevision))
 
+def imprimir_pacientes() -> None:
+    if len(pacientes) == 0:
+        print("No hay pacientes registrados.")
+    else:
+        for paciente in pacientes:
+            print(paciente)
+            print("--------------------")
+    
+
 def main():
     while True:
         op = menu()
@@ -61,6 +70,8 @@ def main():
             print("Imprimiendo un Paciente")
         elif op==5:
             print("Imprimiendo todos los Pacientes")
+            print("--------------------")
+            imprimir_pacientes()
         elif op==6:
             print("Saliendo del programa")
             break
