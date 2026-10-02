@@ -44,9 +44,18 @@ def agregar_paciente() -> None:
         prevision = "Otro"
     else:
         prevision = ""
-        print("Error: Opción inválida")
+        print("Error: Opción inválida. El paciente no fue registrado.")
         return
-    pacientes.append(Paciente(rut, nombre, edad, prevision))
+    
+    try:
+        paciente = Paciente(rut, nombre, edad, prevision)
+    except (ValueError, TypeError) as e:
+        print(f"Error al crear el paciente: {e}")
+        return
+    
+    pacientes.append(paciente)
+    print("Paciente agregado correctamente.")
+    print("--------------------")
 
 def buscar_paciente() -> Paciente | None:
     rut = input("Ingrese el RUT del paciente a buscar: ")
@@ -63,18 +72,23 @@ def imprimir_pacientes() -> None:
             print(paciente)
             print("--------------------")
     
+def confirmar(mensaje: str) -> bool:
+    while True:
+        respuesta = input(mensaje + " (s/n): ").strip().lower()
+        if respuesta in ('s', 'n'):
+            return respuesta == 's'
+        print("Error: Debe ingresar 's' para sí o 'n' para no.")
+
 def eliminar_paciente() -> None:
-    rut = input("Ingrese el RUT del paciente a eliminar: ")
-    for paciente in pacientes:
-        if paciente.rut == rut:
-            confirmacion = input(f"¿Está seguro que desea eliminar al paciente {paciente.nombre}? (s/n): ")
-            if confirmacion.lower() == 's':
-                pacientes.remove(paciente)
-                print("Paciente eliminado.")
-            else:
-                print("Eliminación cancelada.")
-            return
-    print("Paciente no encontrado.")
+    paciente = buscar_paciente()
+    if paciente:
+        if confirmar(f"¿Está seguro que desea eliminar al paciente {paciente.nombre}?"):
+            pacientes.remove(paciente)
+            print("Paciente eliminado.")
+        else:
+          print("Eliminación cancelada.")
+    else:
+        print("Paciente no encontrado.")
 
 def editar_paciente() -> None:
     paciente = buscar_paciente()
